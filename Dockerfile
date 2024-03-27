@@ -1,28 +1,9 @@
 FROM ubuntu:22.04
 
-ARG GH_RUNNER_VERSION "2.314.1"
+ARG DEBIAN_FRONTEND="noninteractive"
+ARG GH_RUNNER_VERSION="2.314.1"
 LABEL RunnerVersion=${GH_RUNNER_VERSION}
 LABEL BaseImage="ubuntu:22.04"
-
-# To make it easier for build and release pipelines to run apt-get,
-# configure apt to not require confirmation (assume the -y argument by default)
-ARG DEBIAN_FRONTEND noninteractive
-RUN echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90.assumeyes
-
-RUN apt-get update \
-&& apt-get install -y --no-install-recommends \
-        ca-certificates \
-        curl \
-        jq \
-        git \
-        iputils-ping \
-        libcurl4 \
-        libunwind8 \
-        netcat \
-        ruby \
-        unzip \
-        dnsutils \
-        nodejs
 
 # Add a non-sudo user
 RUN useradd -m docker
@@ -31,13 +12,12 @@ RUN useradd -m docker
 RUN apt-get update -y && apt-get upgrade -y
 
 # install the packages and dependencies along with jq so we can parse JSON (add additional packages as necessary)
-RUN apt-get install --no-install-recommends \
+RUN apt-get install --no-install-recommends -qqy \
     curl \
     nodejs \
     wget \
     unzip \
     git \
-    azure-cli \
     jq \
     build-essential \
     libssl-dev \
@@ -50,7 +30,7 @@ RUN apt-get install --no-install-recommends \
     software-properties-common
 
 # install Azure CLI
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 # cd into the user directory, download and unzip the github actions runner
 RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
