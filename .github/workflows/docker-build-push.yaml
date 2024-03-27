@@ -28,6 +28,6 @@ jobs:
         push: true
         tags: |
           lrivallain/gh-az-runner:latest
-          lrivallain/gh-az-runner:${{ env.GH_RUNNER_VERSION }}
+          lrivallain/gh-az-runner:${{ vars.GH_RUNNER_VERSION }}
         build-args: |
-          GH_RUNNER_VERSION=${{ env.GH_RUNNER_VERSION }}
+          GH_RUNNER_VERSION=${{ vars.GH_RUNNER_VERSION }}
