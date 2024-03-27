@@ -1,3 +1,5 @@
+[![Docker build and push](https://github.com/Contoso-LRI/github-az-runner-docker/actions/workflows/docker-build-push.yaml/badge.svg)](https://github.com/Contoso-LRI/github-az-runner-docker/actions/workflows/docker-build-push.yaml)
+
 # GitHub action runner image for Azure
 
 This container image is used to deploy [self-hosted GitHub actions runner](https://docs.github.com/en/actions/hosting-your-own-runners) on [Azure Container Instances](https://azure.microsoft.com/en-us/products/container-instances/).
