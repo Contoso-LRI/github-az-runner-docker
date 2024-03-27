@@ -2,8 +2,10 @@ FROM ubuntu:22.04
 
 ARG DEBIAN_FRONTEND="noninteractive"
 ARG GH_RUNNER_VERSION="2.314.1"
+
 LABEL RunnerVersion=${GH_RUNNER_VERSION}
 LABEL BaseImage="ubuntu:22.04"
+LABEL Maintainer="gh:lrivallain"
 
 # Add a non-sudo user
 RUN useradd -m docker
