@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 ARG DEBIAN_FRONTEND="noninteractive"
-ARG GH_RUNNER_VERSION="2.314.1"
+ARG GH_RUNNER_VERSION="2.315.0"
 
 LABEL RunnerVersion=${GH_RUNNER_VERSION}
 LABEL BaseImage="ubuntu:22.04"
