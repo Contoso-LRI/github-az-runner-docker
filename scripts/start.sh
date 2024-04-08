@@ -10,7 +10,12 @@ done
 
 cd /home/docker/actions-runner
 echo "Configuring runner for ${GH_OWNER_URL} -- ${GH_RUNNER_NAME}..."
-./config.sh --unattended --url ${GH_OWNER_URL} --token ${GH_TOKEN} --name ${GH_RUNNER_NAME} --labels ${GH_RUNNER_TAG_NAME},azure,x64,linux
+./config.sh --unattended \
+            --replace \
+            --url ${GH_OWNER_URL} \
+            --token ${GH_TOKEN} \
+            --name ${GH_RUNNER_NAME} \
+            --labels ${GH_RUNNER_TAG_NAME},azure,x64,linux
 
 cleanup() {
     echo "Removing runner for ${GH_OWNER_URL} -- ${GH_RUNNER_NAME}..."
