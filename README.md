@@ -19,3 +19,7 @@ The configuration of the runner is made through the following environment variab
 | GH_RUNNER_TAG_NAME | GitHub runner tag name           |
 | GH_TOKEN           | GitHub token to register runner  |
 
+### GH_TOKEN
+
+`GH_TOKEN` should be a JWT token from a GitHub App with following permissions:
+* self-hosted runners: `read & write`
