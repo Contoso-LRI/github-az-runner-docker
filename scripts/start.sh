@@ -10,7 +10,7 @@ done
 
 # GHToken is a JWT app token and requires to create a registration token for the runner
 gh_owner_name=$(echo ${GH_OWNER_URL} | awk -F/ '{print $4}')
-reg_token_raw_response = $(curl -L \
+reg_token_raw_response=$(curl -L \
   -X POST \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer ${GH_TOKEN}" \
