@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 LABEL org.opencontainers.image.source="https://github.com/Contoso-LRI/github-az-runner-docker"
 
 ARG DEBIAN_FRONTEND="noninteractive"
-ARG GH_RUNNER_VERSION="2.317.0"
+ARG GH_RUNNER_VERSION="2.322.0"
 
 LABEL RunnerVersion=${GH_RUNNER_VERSION}
 LABEL BaseImage="ubuntu:22.04"
